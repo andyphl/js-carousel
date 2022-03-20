@@ -38,8 +38,8 @@ body {
 }
 
 .carousel__container {
-  background: lightgreen;
   height: 100%;
+  background: #c890df;
   position: relative;
   overflow: hidden;
 }

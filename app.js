@@ -5,6 +5,17 @@ const nextBtn = document.querySelector(".carousel__button--right");
 const carouselRadios = document.querySelectorAll(".carousel__nav input");
 let trackWidth = tracks[0].getBoundingClientRect().width;
 
+// Window resize, recalculate track position
+function recalculateTrackPosition(e) {
+  trackWidth = tracks[0].getBoundingClientRect().width;
+  tracks.forEach(setTrackPosition);
+}
+
+window.addEventListener("resize", function (e) {
+  clearTimeout(this.timeout);
+  this.timeout = setTimeout(recalculateTrackPosition, 500, e);
+});
+
 // Set track position
 function setTrackPosition(track, index) {
   track.style.left = trackWidth * index + "px";
